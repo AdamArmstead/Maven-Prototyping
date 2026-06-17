@@ -1,6 +1,9 @@
+import DottedSurface from '@/components/DottedSurface'
+
 export default function Hero() {
   return (
     <header className="hero" id="top">
+      <DottedSurface />
       <svg className="baton" viewBox="0 0 520 520" fill="none" aria-hidden="true">
         <g stroke="#0E5C55" strokeWidth="1.1" opacity="0.55">
           <path d="M40 470 C 180 360, 300 360, 470 70" />

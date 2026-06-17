@@ -70,8 +70,33 @@ nav {
 .nav-links a:hover::after { width: 100%; }
 @media (max-width: 760px) { .nav-links { display: none; } }
 
+/* dotted surface */
+.dotted-surface {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.dotted-surface-grid {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  background-image: radial-gradient(circle, rgba(14,92,85,0.22) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 85% 90% at 25% 45%, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 55%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 90% at 25% 45%, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 55%, transparent 80%);
+  animation: dotted-drift 28s ease-in-out infinite alternate;
+}
+@keyframes dotted-drift {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-18px, -11px); }
+}
+
 /* hero */
 header.hero { padding: 104px 0 78px; position: relative; overflow: hidden; }
+.hero > .wrap { position: relative; z-index: 1; }
 .hero h1 { font-size: clamp(2.7rem, 7.2vw, 5.4rem); }
 .hero h1 em { font-style: normal; color: var(--petrol); }
 .hero .lede {
