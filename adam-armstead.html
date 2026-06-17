@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adam Armstead — Product Design Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,18,400;1,18,500;0,18,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15201D;
+    --ink-soft:#3A4742;
+    --paper:#EEEDE7;
+    --paper-2:#E6E4DB;
+    --petrol:#0E5C55;
+    --petrol-deep:#0A413C;
+    --gold:#A9803A;
+    --line:rgba(21,32,29,.14);
+    --line-soft:rgba(21,32,29,.08);
+    --maxw:1140px;
+    --display:"Schibsted Grotesk",system-ui,sans-serif;
+    --body:"Hanken Grotesk",system-ui,sans-serif;
+    --quote:"Newsreader",Georgia,serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--petrol);color:var(--paper)}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--petrol);
+    display:inline-flex;align-items:center;gap:10px;
+    margin:0 0 22px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--petrol);display:inline-block}
+
+  h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.04;margin:0}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(238,237,231,.82);
+    backdrop-filter:saturate(160%) blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:17px;text-decoration:none}
+  .brand span{color:var(--petrol)}
+  .nav-links{display:flex;gap:30px}
+  .nav-links a{
+    font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    text-decoration:none;color:var(--ink-soft);padding:6px 0;position:relative;
+  }
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--petrol);transition:width .28s ease}
+  .nav-links a:hover::after{width:100%}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* ---------- hero ---------- */
+  header.hero{padding:104px 0 78px;position:relative;overflow:hidden}
+  .hero h1{font-size:clamp(2.7rem,7.2vw,5.4rem)}
+  .hero h1 em{font-style:normal;color:var(--petrol)}
+  .hero .lede{
+    max-width:640px;margin:34px 0 0;font-size:clamp(1.12rem,1.9vw,1.32rem);
+    color:var(--ink-soft);line-height:1.55;
+  }
+  .hero-meta{
+    margin-top:46px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--ink-soft);
+  }
+  .hero-meta span{display:inline-flex;align-items:center;gap:10px}
+  .hero-meta .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+  .hero-cta{margin-top:42px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;
+    text-decoration:none;padding:14px 22px;border-radius:2px;transition:.25s ease;
+  }
+  .btn-solid{background:var(--ink);color:var(--paper)}
+  .btn-solid:hover{background:var(--petrol)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+
+  /* faint conductor lines in hero */
+  .baton{position:absolute;right:-120px;top:60px;width:520px;height:520px;pointer-events:none;opacity:.5}
+  @media(max-width:980px){.baton{display:none}}
+
+  /* ---------- section frame ---------- */
+  section{padding:84px 0;border-top:1px solid var(--line-soft)}
+  .sec-head{max-width:760px;margin-bottom:54px}
+  .sec-head h2{font-size:clamp(1.8rem,4vw,2.9rem)}
+  .sec-head p{color:var(--ink-soft);margin:18px 0 0;font-size:1.08rem;max-width:620px}
+
+  /* ---------- throughline ---------- */
+  .traits{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+  .trait{padding:30px 24px;border-right:1px solid var(--line-soft);background:var(--paper)}
+  .trait:last-child{border-right:none}
+  .trait .n{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.1em}
+  .trait h3{font-size:1.18rem;margin:16px 0 10px;letter-spacing:-.01em}
+  .trait p{font-size:.92rem;color:var(--ink-soft);margin:0;line-height:1.5}
+  @media(max-width:900px){.traits{grid-template-columns:1fr 1fr}.trait{border-bottom:1px solid var(--line-soft)}.trait:nth-child(2n){border-right:none}}
+  @media(max-width:520px){.traits{grid-template-columns:1fr}.trait{border-right:none}}
+
+  /* ---------- philosophy ---------- */
+  .philo{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft)}
+  .pcard{background:var(--paper);padding:40px 38px}
+  .pcard .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol)}
+  .pcard h3{font-size:1.45rem;margin:18px 0 14px}
+  .pcard p{margin:0;color:var(--ink-soft);font-size:1rem}
+  .pcard .said{
+    margin-top:18px;font-family:var(--quote);font-style:italic;font-size:1.02rem;
+    color:var(--ink);border-left:2px solid var(--petrol);padding-left:16px;line-height:1.45;
+  }
+  @media(max-width:740px){.philo{grid-template-columns:1fr}}
+
+  /* ---------- work ---------- */
+  .work{display:flex;flex-direction:column}
+  .proj{
+    display:grid;grid-template-columns:200px 1fr;gap:40px;padding:42px 0;border-top:1px solid var(--line);
+    align-items:start;
+  }
+  .work .proj:first-child{border-top:none}
+  .proj .meta{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em;line-height:1.7}
+  .proj .meta .tag{color:var(--petrol)}
+  .proj h3{font-size:clamp(1.4rem,2.6vw,1.95rem);margin-bottom:14px}
+  .proj p{margin:0;color:var(--ink-soft);max-width:680px}
+  .proj .pills{margin-top:20px;display:flex;flex-wrap:wrap;gap:8px}
+  .pill{font-family:var(--mono);font-size:11px;letter-spacing:.05em;padding:5px 11px;border:1px solid var(--line);border-radius:100px;color:var(--ink-soft)}
+  @media(max-width:720px){.proj{grid-template-columns:1fr;gap:14px}}
+
+  /* ---------- timeline ---------- */
+  .tl{position:relative;margin-left:6px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:var(--line)}
+  .row{position:relative;padding:0 0 30px 40px}
+  .row:last-child{padding-bottom:0}
+  .row::before{content:"";position:absolute;left:2px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:2px solid var(--petrol)}
+  .row .yr{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.05em}
+  .row h3{font-size:1.22rem;margin:5px 0 4px}
+  .row p{margin:0;color:var(--ink-soft);font-size:.97rem}
+
+  /* ---------- voices ---------- */
+  .voices-sec{background:var(--ink);color:var(--paper);border-top:none}
+  .voices-sec .eyebrow{color:#7FCFC6}
+  .voices-sec .eyebrow::before{background:#7FCFC6}
+  .voices-sec h2{color:var(--paper)}
+  .voices-sec .sec-head p{color:rgba(238,237,231,.66)}
+  .voices{columns:2;column-gap:34px}
+  @media(max-width:760px){.voices{columns:1}}
+  .quote{break-inside:avoid;margin:0 0 28px;padding:26px 28px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:3px}
+  .quote blockquote{margin:0;font-family:var(--quote);font-style:italic;font-size:1.14rem;line-height:1.5;color:#F2F1EC}
+  .quote .src{margin-top:16px;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;line-height:1.55;color:rgba(238,237,231,.55)}
+  .quote .src b{color:#9AD7CF;font-weight:500}
+
+  /* ---------- recognition ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
+  .stat{background:var(--paper);padding:34px 26px}
+  .stat .num{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,4.5vw,3.1rem);letter-spacing:-.03em;line-height:1}
+  .stat .num small{font-size:1.1rem;color:var(--petrol);font-weight:700}
+  .stat .lab{margin-top:12px;font-size:.9rem;color:var(--ink-soft);line-height:1.45}
+  @media(max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+  .reco-note{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+  .chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;padding:9px 15px;border:1px solid var(--line);border-radius:2px;color:var(--ink-soft)}
+  .chip b{color:var(--ink);font-weight:500}
+
+  /* ---------- connect ---------- */
+  .connect{text-align:center;padding:96px 0}
+  .connect h2{font-size:clamp(2rem,5.5vw,3.6rem);max-width:760px;margin:0 auto}
+  .connect p{color:var(--ink-soft);max-width:480px;margin:22px auto 0}
+  .connect .hero-cta{justify-content:center}
+
+  footer{border-top:1px solid var(--line);padding:34px 0}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--ink-soft)}
+  footer a{text-decoration:none}
+  footer a:hover{color:var(--petrol)}
+
+  /* reveal */
+  .rev{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .rev.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rev{opacity:1;transform:none;transition:none}
+  }
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:2px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">Adam Armstead<span>.</span></a>
+    <div class="nav-links">
+      <a href="#constant">Throughline</a>
+      <a href="#lead">How I lead</a>
+      <a href="#work">Work</a>
+      <a href="#voices">In their words</a>
+      <a href="#connect">Connect</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="baton" viewBox="0 0 520 520" fill="none" aria-hidden="true">
+    <g stroke="#0E5C55" stroke-width="1.1" opacity="0.55">
+      <path d="M40 470 C 180 360, 300 360, 470 70"/>
+      <path d="M40 470 C 200 380, 320 380, 470 130"/>
+      <path d="M40 470 C 220 400, 340 400, 470 190"/>
+      <path d="M40 470 C 240 420, 360 420, 470 250"/>
+    </g>
+    <circle cx="470" cy="70" r="4.5" fill="#A9803A"/>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow rev">Product Design Leadership</p>
+    <h1 class="rev">I bring clarity to complex,<br>cross-team design —<br>and keep it <em>human</em>.</h1>
+    <p class="lede rev">Senior Manager of Product Design at ServiceNow. Fifteen years turning ambiguity into shipped experiences, leading designers across business units and time zones, and building teams that feel safe enough to do their best work.</p>
+    <div class="hero-meta rev">
+      <span><span class="dot"></span>Sr. Manager, Product Design · ServiceNow</span>
+      <span><span class="dot"></span>ITSM &amp; AI-native experiences</span>
+      <span><span class="dot"></span>California</span>
+    </div>
+    <div class="hero-cta rev">
+      <a class="btn btn-solid" href="#work">See the work</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/adamarmstead/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<section id="constant">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow">The throughline</p>
+      <h2>The same person, described for fifteen years.</h2>
+      <p>Across Nokia, Illumina, TakeLessons, Renovate America, and ServiceNow — through individual craft and through management — the feedback keeps landing on the same handful of things. That consistency is the point.</p>
+    </div>
+    <div class="traits rev">
+      <div class="trait">
+        <span class="n">01</span>
+        <h3>Clarity under complexity</h3>
+        <p>Synthesizes messy, multi-team problems into a direction people can actually move on.</p>
+      </div>
+      <div class="trait">
+        <span class="n">02</span>
+        <h3>People first</h3>
+        <p>Builds psychological safety where honest conversation and good work both happen.</p>
+      </div>
+      <div class="trait">
+        <span class="n">03</span>
+        <h3>Calm in the chaos</h3>
+        <p>Steady when timelines slip and the room gets loud — a stabilizing presence.</p>
+      </div>
+      <div class="trait">
+        <span class="n">04</span>
+        <h3>Craft &amp; customers</h3>
+        <p>Relentless about ease of use and the details, with the customer kept at the center.</p>
+      </div>
+      <div class="trait">
+        <span class="n">05</span>
+        <h3>Humor that disarms</h3>
+        <p>Levity that takes tension out of hard conversations and brings people back to earth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lead">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow">How I lead</p>
+      <h2>Conviction at altitude. Warmth up close.</h2>
+      <p>A leadership style built on informed point of view, operational rigor, and genuine care — refined over a decade and a half of doing the work.</p>
+    </div>
+    <div class="philo rev">
+      <div class="pcard">
+        <span class="k">Altitude &amp; details</span>
+        <h3>Lead at altitude, deliver in the details</h3>
+        <p>Systems-level thinking and executive-legible communication — paired with a willingness to jump back into the file when the team is in crunch. Strategy and craft aren't separate jobs.</p>
+        <p class="said">“The conductor of an orchestra — bringing clarity, harmony, and momentum to an incredibly complex effort, with limited resources.”</p>
+      </div>
+      <div class="pcard">
+        <span class="k">Safety</span>
+        <h3>Psychological safety isn't soft</h3>
+        <p>People do their best work when they can ask the dumb question, disagree, and be vulnerable. That environment is something you build on purpose — and defend.</p>
+        <p class="said">“His openness and honesty create a safe environment. I always feel like he has my (our) back(s).”</p>
+      </div>
+      <div class="pcard">
+        <span class="k">Conviction</span>
+        <h3>Conviction over consensus</h3>
+        <p>Forms a real point of view from research and customer truth, then advocates for it — while staying genuinely open to being moved by a better argument.</p>
+        <p class="said">“Adam has evolved from playing it safe to confidently pushing the boundaries in design — a clear positive impact on our solutions.”</p>
+      </div>
+      <div class="pcard">
+        <span class="k">Levity</span>
+        <h3>Humor is a leadership tool</h3>
+        <p>Used well, humor disarms tension and builds trust faster than any process. Calibrated to the moment — not suppressed, not performed.</p>
+        <p class="said">“He brings a degree of levity to tough convos… This quality is frankly rare — but essential — in our line of work.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow">Selected work</p>
+      <h2>Where clarity and craft met the stakes.</h2>
+      <p>A few efforts that captured the pattern: high ambiguity, high visibility, many moving parts — turned into something shipped and celebrated.</p>
+    </div>
+    <div class="work">
+      <article class="proj rev">
+        <div class="meta">
+          <div class="tag">Flagship demos</div>
+          <div>ServiceNow · ITSM</div>
+          <div>Knowledge 23–25, SKO, FAD</div>
+        </div>
+        <div>
+          <h3>Keynote &amp; event demos for AI-native ITSM</h3>
+          <p>Led and program-managed design for the company's most visible keynote demos — guiding multiple designers across time zones through chaotic, last-minute pivots. Two Knowledge 25 vignettes showcasing agentic AI were chosen for the main stage at Amit's keynote and again at Financial Analyst Day; the team also salvaged a broken outside-agency demo into the polished Stellantis story. The work shaped sales pipeline, drew praise from Pablo, was something Workday asked to share with their leaders to build AI business cases — and was referenced in Forbes.</p>
+          <div class="pills"><span class="pill">Agentic AI</span><span class="pill">Design program mgmt</span><span class="pill">Cross-time-zone</span><span class="pill">Exec visibility</span></div>
+        </div>
+      </article>
+
+      <article class="proj rev">
+        <div class="meta">
+          <div class="tag">Cross-BU leadership</div>
+          <div>ServiceNow</div>
+          <div>Impact · ITSM · CBS</div>
+        </div>
+        <div>
+          <h3>Implementation Agent &amp; Core IT</h3>
+          <p>Co-led a first-of-its-kind cross-business-unit design partnership, creating a shared roadmap and joint review structure so designers working in parallel could ship consistently. Simultaneously led the Core IT Fulfiller, Requestor, and Admin experiences, introducing design task-management practices that improved alignment — and strategically reallocating designers to move the fulfiller track from yellow to green risk.</p>
+          <div class="pills"><span class="pill">Multi-team orchestration</span><span class="pill">Design ops</span><span class="pill">Risk recovery</span></div>
+        </div>
+      </article>
+
+      <article class="proj rev">
+        <div class="meta">
+          <div class="tag">Systems &amp; scale</div>
+          <div>ServiceNow</div>
+          <div>Horizon Design System</div>
+        </div>
+        <div>
+          <h3>Service Operations Workspace Figma library</h3>
+          <p>Helped shape and scale a living source of truth built on the Horizon Design System — covering the most common SOW pages, configurations, and components — so designers across ITSM, and customers themselves, could build faster, more consistent end-to-end experiences.</p>
+          <div class="pills"><span class="pill">Design systems</span><span class="pill">Reusable patterns</span><span class="pill">Enablement</span></div>
+        </div>
+      </article>
+
+      <article class="proj rev">
+        <div class="meta">
+          <div class="tag">Earlier impact</div>
+          <div>Renovate America · Illumina</div>
+          <div>TakeLessons · Intuit</div>
+        </div>
+        <div>
+          <h3>A decade of shipping the hard ones</h3>
+          <p>As principal designer at Renovate America, drove mobile experiences that beat first-year business goals and helped a "version 1" product be hailed as best-in-class — credited by a CEO partner with contributing to 4× year-over-year growth. At Illumina, made sophisticated gene-sequencing instrument workflows genuinely usable. At TakeLessons, led the first iPhone app, instituted rigorous usability testing, and created the company's first style guide. At Intuit, reimagined complex TurboTax flows with little direction.</p>
+          <div class="pills"><span class="pill">Mobile</span><span class="pill">Human factors</span><span class="pill">0→1 process</span><span class="pill">Usability</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="path">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow">The path</p>
+      <h2>From human factors to design leadership.</h2>
+    </div>
+    <div class="tl rev">
+      <div class="row">
+        <div class="yr">Now</div>
+        <h3>Senior Manager, Product Design — ServiceNow</h3>
+        <p>Leading design across ITSM, Core IT, and AI-native experiences; managing designers across business units and geographies.</p>
+      </div>
+      <div class="row">
+        <div class="yr">Earlier at ServiceNow</div>
+        <h3>Product Designer → UX Manager</h3>
+        <p>Grew from individual contributor on next-generation Workspace initiatives into people management, building team culture and process along the way.</p>
+      </div>
+      <div class="row">
+        <div class="yr">Before</div>
+        <h3>Principal / Lead Product Designer — Renovate America</h3>
+        <p>Owned flagship mobile and HERO application experiences; partnered across the org to balance business goals with user needs.</p>
+      </div>
+      <div class="row">
+        <div class="yr">Before</div>
+        <h3>UX / Design Lead — TakeLessons &amp; Intuit</h3>
+        <p>Built design process from the ground up, shipped first mobile apps, and reimagined complex consumer flows.</p>
+      </div>
+      <div class="row">
+        <div class="yr">Foundations</div>
+        <h3>Human Factors &amp; UI Design — Illumina &amp; Nokia</h3>
+        <p>Cut teeth making highly technical instruments and mobile interfaces intuitive — and learned to bridge the gap between engineers and designers early.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voices" class="voices-sec">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow">In their words</p>
+      <h2>What collaborators say.</h2>
+      <p>A selection from across companies, roles, and years — managers, reports, engineers, and peers.</p>
+    </div>
+    <div class="voices">
+      <figure class="quote rev">
+        <blockquote>“One of the most steady, thoughtful design leaders I've partnered with. During the wildest months of the AI transformation, he brought calm, humor, and a grounded perspective that helped teams navigate constant change.”</blockquote>
+        <figcaption class="src"><b>Tami McBride</b><br>AI Experience Strategy · ServiceNow · 2025</figcaption>
+      </figure>
+      <figure class="quote rev">
+        <blockquote>“He doesn't just focus on the work; he focuses on the people doing it. Working with Adam made a real difference in my career.”</blockquote>
+        <figcaption class="src"><b>Akshay Hargude</b><br>Staff Product Designer · ServiceNow · 2025</figcaption>
+      </figure>
+      <figure class="quote rev">
+        <blockquote>“A high-impact leader with a calm, grounded presence — the institutional knowledge base of any organization. He always seems to have the answer, context, or insight one needs.”</blockquote>
+        <figcaption class="src"><b>Pranjal Ranka</b><br>Design Leadership · ServiceNow · 2025</figcaption>
+      </figure>
+      <figure class="quote rev">
+        <blockquote>“Even with a 10-hour time difference, Adam was always accessible, responded quickly, and would meet very early in his morning — real commitment and flexibility.”</blockquote>
+        <figcaption class="src"><b>Ephraim Grinsztajn</b><br>Sr. Product Designer · ServiceNow · 2025</figcaption>
+      </figure>
+      <figure class="quote rev">
+        <blockquote>“Adam not only welcomes feedback, he craves it. I've never met someone who takes feedback so enthusiastically — he listens, understands, and acts, leaving any ego at the door.”</blockquote>
+        <figcaption class="src"><b>Rachael Parekh</b><br>Product Designer · 2025</figcaption>
+      </figure>
+      <figure class="quote rev">
+        <blockquote>“Adam's designs delight users, drive actions, and deliver business results. His work is a great example of ‘design is how it works.'”</blockquote>
+        <figcaption class="src"><b>Daniel Sutoyo</b><br>Director, Product · ServiceNow</figcaption>
+      </figure>
+      <figure class="quote rev">
+        <blockquote>“His unrelenting focus and internal championing for simplicity delivered an experience hailed as best-in-class even in its version-one release — and contributed to 4× year-over-year growth.”</blockquote>
+        <figcaption class="src"><b>Patrick Moore</b><br>CEO · Mosaic</figcaption>
+      </figure>
+      <figure class="quote rev">
+        <blockquote>“Working alongside Adam as a developer, there was always a chance to expand my own skill set — the experiences he crafted were top-notch, and my code had to match.”</blockquote>
+        <figcaption class="src"><b>Travis Thompson</b><br>Engineering Manager · ServiceNow</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="recognition">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <p class="eyebrow">Recognition</p>
+      <h2>A track record that compounds.</h2>
+      <p>Recognition tends to follow the same theme — showing up for the team and getting hard things over the line.</p>
+    </div>
+    <div class="stats rev">
+      <div class="stat">
+        <div class="num">56</div>
+        <div class="lab">peer Kudos received at ServiceNow (2023–2025)</div>
+      </div>
+      <div class="stat">
+        <div class="num">36</div>
+        <div class="lab">tagged “Win as a Team” — the most-cited value, by far</div>
+      </div>
+      <div class="stat">
+        <div class="num">50<small>+</small></div>
+        <div class="lab">LinkedIn recommendations across 15 years and 6 companies</div>
+      </div>
+      <div class="stat">
+        <div class="num">15<small>yrs</small></div>
+        <div class="lab">of feedback converging on the same strengths</div>
+      </div>
+    </div>
+    <div class="reco-note rev">
+      <span class="chip">Keynote demo work referenced in <b>Forbes</b></span>
+      <span class="chip">K25 vignettes selected for <b>Amit's keynote &amp; Financial Analyst Day</b></span>
+      <span class="chip">Built the <b>San Diego UX community</b> via UX Speakeasy</span>
+      <span class="chip">Contributor to <b>SD Design Trek</b> · World Design Capital year</span>
+    </div>
+  </div>
+</section>
+
+<section class="connect" id="connect">
+  <div class="wrap">
+    <p class="eyebrow rev" style="justify-content:center">Connect</p>
+    <h2 class="rev">Let's build teams and experiences that last.</h2>
+    <p class="rev">Open to conversations about design leadership, building high-trust teams, and shipping ambitious AI-native experiences.</p>
+    <div class="hero-cta rev">
+      <a class="btn btn-solid" href="https://www.linkedin.com/in/adamarmstead/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>Adam Armstead — Product Design Leader</span>
+    <span>Built from fifteen years of feedback</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.12, rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll('.rev').forEach((el,i)=>{
+    el.style.transitionDelay = Math.min(i%6*60,300)+'ms';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
