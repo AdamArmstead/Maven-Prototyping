@@ -1,90 +1,114 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import * as THREE from 'three'
 
 export default function DottedSurface() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    const container = containerRef.current
+    if (!container) return
 
-    const SPACING = 26
-    const DOT_MAX = 2.2
-    const DOT_MIN = 0.4
-    const WAVE_SPEED = 0.45
-    const WAVELENGTH = 130
+    const SEPARATION = 150
+    const AMOUNTX = 40
+    const AMOUNTY = 60
 
-    const resize = () => {
-      canvas.width = canvas.offsetWidth * window.devicePixelRatio
-      canvas.height = canvas.offsetHeight * window.devicePixelRatio
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio)
+    const width = container.offsetWidth
+    const height = container.offsetHeight
+
+    const scene = new THREE.Scene()
+
+    const camera = new THREE.PerspectiveCamera(60, width / height, 1, 10000)
+    camera.position.set(0, 355, 1220)
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setSize(width, height)
+    renderer.setClearColor(0x000000, 0)
+    container.appendChild(renderer.domElement)
+
+    const positions: number[] = []
+    const colors: number[] = []
+
+    for (let ix = 0; ix < AMOUNTX; ix++) {
+      for (let iy = 0; iy < AMOUNTY; iy++) {
+        positions.push(
+          ix * SEPARATION - (AMOUNTX * SEPARATION) / 2,
+          0,
+          iy * SEPARATION - (AMOUNTY * SEPARATION) / 2,
+        )
+        // petrol: rgb(14, 92, 85) normalised to 0–1
+        colors.push(14 / 255, 92 / 255, 85 / 255)
+      }
     }
-    resize()
 
-    const ro = new ResizeObserver(resize)
-    ro.observe(canvas)
+    const geometry = new THREE.BufferGeometry()
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3))
+    geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3))
 
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const material = new THREE.PointsMaterial({
+      size: 8,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.7,
+      sizeAttenuation: true,
+    })
+
+    const points = new THREE.Points(geometry, material)
+    scene.add(points)
+
+    let count = 0
     let animId: number
-    let time = 0
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    const draw = () => {
-      const w = canvas.offsetWidth
-      const h = canvas.offsetHeight
-      ctx.clearRect(0, 0, w, h)
+    const animate = () => {
+      animId = requestAnimationFrame(animate)
 
-      const cols = Math.ceil(w / SPACING) + 1
-      const rows = Math.ceil(h / SPACING) + 1
-      const cx = w * 0.38
-      const cy = h * 0.5
-      const maxDist = Math.sqrt(w * w + h * h) * 0.52
-
-      for (let i = 0; i <= cols; i++) {
-        for (let j = 0; j <= rows; j++) {
-          const x = i * SPACING
-          const y = j * SPACING
-
-          const wave =
-            Math.sin(x / WAVELENGTH + time) *
-            Math.cos(y / WAVELENGTH + time * 0.6) *
-            Math.sin((x + y) / (WAVELENGTH * 1.4) + time * 0.4)
-
-          const t = (wave + 1) / 2
-
-          const dist = Math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
-          const fade = Math.max(0, 1 - dist / maxDist)
-          if (fade < 0.01) continue
-
-          const radius = (DOT_MIN + t * (DOT_MAX - DOT_MIN)) * fade
-          const opacity = (0.12 + t * 0.48) * fade
-
-          ctx.beginPath()
-          ctx.arc(x, y, radius, 0, Math.PI * 2)
-          ctx.fillStyle = `rgba(14,92,85,${opacity.toFixed(3)})`
-          ctx.fill()
+      const pos = geometry.attributes.position.array as Float32Array
+      let i = 0
+      for (let ix = 0; ix < AMOUNTX; ix++) {
+        for (let iy = 0; iy < AMOUNTY; iy++) {
+          pos[i * 3 + 1] =
+            Math.sin((ix + count) * 0.3) * 50 +
+            Math.sin((iy + count) * 0.5) * 50
+          i++
         }
       }
+      geometry.attributes.position.needsUpdate = true
 
-      if (!reducedMotion) {
-        time += WAVE_SPEED * 0.018
-        animId = requestAnimationFrame(draw)
-      }
+      renderer.render(scene, camera)
+      if (!reducedMotion) count += 0.1
     }
 
-    draw()
+    const ro = new ResizeObserver(() => {
+      const w = container.offsetWidth
+      const h = container.offsetHeight
+      camera.aspect = w / h
+      camera.updateProjectionMatrix()
+      renderer.setSize(w, h)
+    })
+    ro.observe(container)
+
+    animate()
 
     return () => {
       cancelAnimationFrame(animId)
       ro.disconnect()
+      geometry.dispose()
+      material.dispose()
+      renderer.dispose()
+      if (container.contains(renderer.domElement)) {
+        container.removeChild(renderer.domElement)
+      }
     }
   }, [])
 
   return (
-    <div className="dotted-surface" aria-hidden="true">
-      <canvas ref={canvasRef} className="dotted-surface-canvas" />
-    </div>
+    <div
+      ref={containerRef}
+      className="dotted-surface"
+      aria-hidden="true"
+    />
   )
 }

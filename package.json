@@ -8,9 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@types/three": "^0.184.1",
     "next": "^15",
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@types/node": "^20",
