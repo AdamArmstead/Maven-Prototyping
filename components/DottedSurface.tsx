@@ -10,17 +10,18 @@ export default function DottedSurface() {
     const container = containerRef.current
     if (!container) return
 
-    const SEPARATION = 140
-    const AMOUNTX = 45
-    const AMOUNTY = 75
+    const SEPARATION = 130
+    const AMOUNTX = 52
+    const AMOUNTY = 95
 
     const width = container.offsetWidth
     const height = container.offsetHeight
 
     const scene = new THREE.Scene()
 
-    const camera = new THREE.PerspectiveCamera(72, width / height, 1, 10000)
-    camera.position.set(0, 280, 1550)
+    const camera = new THREE.PerspectiveCamera(75, width / height, 1, 10000)
+    camera.position.set(0, 420, 2200)
+    camera.lookAt(0, -180, -600)
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
     renderer.setPixelRatio(window.devicePixelRatio)
@@ -86,6 +87,7 @@ export default function DottedSurface() {
       const h = container.offsetHeight
       camera.aspect = w / h
       camera.updateProjectionMatrix()
+      camera.lookAt(0, -180, -600)
       renderer.setSize(w, h)
     })
     ro.observe(container)
