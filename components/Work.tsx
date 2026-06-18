@@ -15,7 +15,7 @@ export default function Work() {
             <div className="meta">
               <div className="tag">Flagship demos</div>
               <div>ServiceNow · ITSM</div>
-              <div>Knowledge 23–25, SKO, FAD</div>
+              <div>Knowledge 23–25, Sales Kickoff, Financial Analyst Day</div>
             </div>
             <div>
               <h3>Keynote &amp; event demos for AI-native ITSM</h3>
@@ -23,10 +23,11 @@ export default function Work() {
                 Led and program-managed design for the company's most visible keynote demos —
                 guiding multiple designers across time zones through chaotic, last-minute pivots.
                 Two Knowledge 25 vignettes showcasing agentic AI were chosen for the main stage at
-                Amit's keynote and again at Financial Analyst Day; the team also salvaged a broken
-                outside-agency demo into the polished Stellantis story. The work shaped sales
-                pipeline, drew praise from Pablo, was something Workday asked to share with their
-                leaders to build AI business cases — and was referenced in Forbes.
+                the Chief Product Officer's keynote and again at Financial Analyst Day; the team
+                also salvaged a broken outside-agency demo into a polished customer success story.
+                The work shaped sales pipeline, drew recognition from the SVP and General Manager
+                of Technology Workflows, was something Workday asked to share with their leaders to
+                build AI business cases — and was referenced in Forbes.
               </p>
               <div className="pills">
                 <span className="pill">Agentic AI</span>
@@ -41,10 +42,10 @@ export default function Work() {
             <div className="meta">
               <div className="tag">Cross-BU leadership</div>
               <div>ServiceNow</div>
-              <div>Impact · ITSM · CBS</div>
+              <div>Impact · ITSM · Core Business Suite</div>
             </div>
             <div>
-              <h3>Implementation Agent &amp; Core IT</h3>
+              <h3>Now Assist for Setup &amp; Core IT</h3>
               <p>
                 Co-led a first-of-its-kind cross-business-unit design partnership, creating a
                 shared roadmap and joint review structure so designers working in parallel could
@@ -71,9 +72,10 @@ export default function Work() {
               <h3>Service Operations Workspace Figma library</h3>
               <p>
                 Helped shape and scale a living source of truth built on the Horizon Design System
-                — covering the most common SOW pages, configurations, and components — so designers
-                across ITSM, and customers themselves, could build faster, more consistent
-                end-to-end experiences.
+                — covering the most common pages, configurations, and components of Service
+                Operations Workspace, the core application for IT Service Management at ServiceNow
+                — so designers across ITSM, and customers themselves, could build faster, more
+                consistent end-to-end experiences.
               </p>
               <div className="pills">
                 <span className="pill">Design systems</span>

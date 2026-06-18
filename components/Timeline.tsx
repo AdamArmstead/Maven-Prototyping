@@ -27,7 +27,7 @@ export default function Timeline() {
             <div className="yr">Before</div>
             <h3>Principal / Lead Product Designer — Renovate America</h3>
             <p>
-              Owned flagship mobile and HERO application experiences; partnered across the org to
+              Owned flagship contractor mobile app experience; partnered across the org to
               balance business goals with user needs.
             </p>
           </div>

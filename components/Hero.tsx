@@ -23,7 +23,7 @@ export default function Hero() {
           and keep it <em>human</em>.
         </h1>
         <p className="lede rev">
-          Senior Manager of Product Design at ServiceNow. Fifteen years turning ambiguity into
+          Senior Manager of Product Design at ServiceNow. 20+ years turning ambiguity into
           shipped experiences, leading designers across business units and time zones, and building
           teams that feel safe enough to do their best work.
         </p>
