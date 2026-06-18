@@ -3,7 +3,7 @@ export default function Footer() {
     <footer>
       <div className="wrap foot">
         <span>Adam Armstead — Product Design Leader</span>
-        <span>Built from fifteen years of feedback</span>
+        <span>Built from twenty years of feedback</span>
       </div>
     </footer>
   )

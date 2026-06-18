@@ -20,8 +20,7 @@ export default function Voices() {
             <figcaption className="src">
               <b>Tami McBride</b>
               <br />
-              AI Experience Strategy · ServiceNow · 2025
-            </figcaption>
+              AI Experience Strategy · ServiceNow            </figcaption>
           </figure>
           <figure className="quote rev">
             <blockquote>
@@ -31,8 +30,7 @@ export default function Voices() {
             <figcaption className="src">
               <b>Akshay Hargude</b>
               <br />
-              Staff Product Designer · ServiceNow · 2025
-            </figcaption>
+              Staff Product Designer · ServiceNow            </figcaption>
           </figure>
           <figure className="quote rev">
             <blockquote>
@@ -43,8 +41,7 @@ export default function Voices() {
             <figcaption className="src">
               <b>Pranjal Ranka</b>
               <br />
-              Design Leadership · ServiceNow · 2025
-            </figcaption>
+              Design Leadership · ServiceNow            </figcaption>
           </figure>
           <figure className="quote rev">
             <blockquote>
@@ -54,8 +51,7 @@ export default function Voices() {
             <figcaption className="src">
               <b>Ephraim Grinsztajn</b>
               <br />
-              Sr. Product Designer · ServiceNow · 2025
-            </figcaption>
+              Sr. Product Designer · ServiceNow            </figcaption>
           </figure>
           <figure className="quote rev">
             <blockquote>
@@ -66,8 +62,7 @@ export default function Voices() {
             <figcaption className="src">
               <b>Rachael Parekh</b>
               <br />
-              Product Designer · 2025
-            </figcaption>
+              Product Designer            </figcaption>
           </figure>
           <figure className="quote rev">
             <blockquote>

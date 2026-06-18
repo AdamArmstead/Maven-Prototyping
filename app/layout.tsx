@@ -34,7 +34,7 @@ const ibmMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: 'Adam Armstead — Product Design Leader',
   description:
-    'Senior Manager of Product Design at ServiceNow. Fifteen years turning ambiguity into shipped experiences, leading designers across business units and time zones.',
+    'Senior Manager of Product Design at ServiceNow. 20+ years turning ambiguity into shipped experiences, leading designers across business units and time zones.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

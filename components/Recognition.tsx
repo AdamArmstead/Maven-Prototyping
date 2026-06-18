@@ -23,11 +23,11 @@ export default function Recognition() {
             <div className="num">
               50<small>+</small>
             </div>
-            <div className="lab">LinkedIn recommendations across 15 years and 6 companies</div>
+            <div className="lab">LinkedIn recommendations across 20+ years and 6 companies</div>
           </div>
           <div className="stat">
             <div className="num">
-              15<small>yrs</small>
+              20<small>yrs</small>
             </div>
             <div className="lab">of feedback converging on the same strengths</div>
           </div>
@@ -37,7 +37,7 @@ export default function Recognition() {
             Keynote demo work referenced in <b>Forbes</b>
           </span>
           <span className="chip">
-            K25 vignettes selected for <b>Amit's keynote &amp; Financial Analyst Day</b>
+            K25 vignettes selected for <b>Chief Product Officer's keynote &amp; Financial Analyst Day</b>
           </span>
           <span className="chip">
             Built the <b>San Diego UX community</b> via UX Speakeasy

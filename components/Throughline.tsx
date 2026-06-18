@@ -4,7 +4,7 @@ export default function Throughline() {
       <div className="wrap">
         <div className="sec-head rev">
           <p className="eyebrow">The throughline</p>
-          <h2>The same person, described for fifteen years.</h2>
+          <h2>The same person, described for twenty years.</h2>
           <p>
             Across Nokia, Illumina, TakeLessons, Renovate America, and ServiceNow — through
             individual craft and through management — the feedback keeps landing on the same handful
