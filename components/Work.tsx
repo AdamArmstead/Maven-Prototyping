@@ -15,7 +15,7 @@ export default function Work() {
             <div className="meta">
               <div className="tag">Flagship demos</div>
               <div>ServiceNow · ITSM</div>
-              <div>Knowledge 23–25, Sales Kickoff, Financial Analyst Day</div>
+              <div>Knowledge (annual user conference) 23–25, Sales Kickoff, Financial Analyst Day</div>
             </div>
             <div>
               <h3>Keynote &amp; event demos for AI-native ITSM</h3>
