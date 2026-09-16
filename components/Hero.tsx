@@ -1,9 +1,6 @@
-import DottedSurface from '@/components/DottedSurface'
-
 export default function Hero() {
   return (
     <header className="hero" id="top">
-      <DottedSurface />
       <svg className="baton" viewBox="0 0 520 520" fill="none" aria-hidden="true">
         <g stroke="#0E5C55" strokeWidth="1.1" opacity="0.55">
           <path d="M40 470 C 180 360, 300 360, 470 70" />
@@ -23,9 +20,9 @@ export default function Hero() {
           and keep it <em>human</em>.
         </h1>
         <p className="lede rev">
-          Senior Manager of Product Design at ServiceNow. 20+ years turning ambiguity into
-          shipped experiences, leading designers across business units and time zones, and building
-          teams that feel safe enough to do their best work.
+          Senior Manager of Product Design at ServiceNow, leading the ITSM design organization —
+          20+ designers across Incident, Problem, and Change. 20+ years turning ambiguity into
+          shipped experiences and building teams that feel safe enough to do their best work.
         </p>
         <div className="hero-meta rev">
           <span>

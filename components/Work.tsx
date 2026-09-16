@@ -48,11 +48,11 @@ export default function Work() {
               <h3>Now Assist for Setup &amp; Core IT</h3>
               <p>
                 Co-led a first-of-its-kind cross-business-unit design partnership, creating a
-                shared roadmap and joint review structure so designers working in parallel could
-                ship consistently. Simultaneously led the Core IT Fulfiller, Requestor, and Admin
-                experiences, introducing design task-management practices that improved alignment —
-                and strategically reallocating designers to move the fulfiller track from yellow to
-                green risk.
+                shared roadmap and joint review structure so that over 10 designers working in
+                parallel across three organizations could ship consistently. Simultaneously led
+                the Core IT Fulfiller, Requestor, and Admin experiences, introducing design
+                task-management practices that improved alignment — and strategically reallocating
+                designers to move the fulfiller track from yellow to green risk.
               </p>
               <div className="pills">
                 <span className="pill">Multi-team orchestration</span>

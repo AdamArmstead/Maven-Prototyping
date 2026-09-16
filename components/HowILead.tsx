@@ -7,7 +7,7 @@ export default function HowILead() {
           <h2>Conviction at altitude. Warmth up close.</h2>
           <p>
             A leadership style built on informed point of view, operational rigor, and genuine care
-            — refined over a decade and a half of doing the work.
+            — refined over nearly twenty years of doing the work.
           </p>
         </div>
         <div className="philo rev">

@@ -11,16 +11,18 @@ export default function Timeline() {
             <div className="yr">Now</div>
             <h3>Senior Manager, Product Design — ServiceNow</h3>
             <p>
-              Leading design across ITSM, Core IT, and AI-native experiences; managing designers
-              across business units and geographies.
+              Leading the ITSM design organization — 20+ designers and 14 direct reports across
+              Incident, Problem, and Change Management, supporting a business unit that accounts
+              for $4B+ in company revenue.
             </p>
           </div>
           <div className="row">
             <div className="yr">Earlier at ServiceNow</div>
-            <h3>Product Designer → UX Manager</h3>
+            <h3>Sr. UX Designer → Staff Designer → Manager, Product Design</h3>
             <p>
-              Grew from individual contributor on next-generation Workspace initiatives into people
-              management, building team culture and process along the way.
+              Re-architected the core platform experience, then led Manager Workspaces as Core App
+              Lead, then moved into people management — building a global team of 8 across the ITSM
+              pillars and promoting four designers with almost zero attrition.
             </p>
           </div>
           <div className="row">

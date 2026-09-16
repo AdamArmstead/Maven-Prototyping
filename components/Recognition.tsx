@@ -40,10 +40,17 @@ export default function Recognition() {
             K25 vignettes selected for <b>Chief Product Officer's keynote &amp; Financial Analyst Day</b>
           </span>
           <span className="chip">
-            Built the <b>San Diego UX community</b> via UX Speakeasy
+            Built the <b>San Diego UX community</b> via UX Speakeasy — former President, Board
+            member, and CFO
+          </span>
+          <span className="chip">
+            <b>SDXD</b> — former organizer and speaker
           </span>
           <span className="chip">
             Contributor to <b>SD Design Trek</b> · World Design Capital year
+          </span>
+          <span className="chip">
+            <b>Phi Beta Kappa</b> · Golden Key International Honour Society
           </span>
         </div>
       </div>
