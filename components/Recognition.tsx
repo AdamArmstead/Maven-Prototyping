@@ -23,11 +23,11 @@ export default function Recognition() {
             <div className="num">
               50<small>+</small>
             </div>
-            <div className="lab">LinkedIn recommendations across 20+ years and 6 companies</div>
+            <div className="lab">LinkedIn recommendations across nearly 20 years and 6 companies</div>
           </div>
           <div className="stat">
             <div className="num">
-              20<small>yrs</small>
+              ~20<small>yrs</small>
             </div>
             <div className="lab">of feedback converging on the same strengths</div>
           </div>

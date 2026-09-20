@@ -21,7 +21,7 @@ export default function Hero() {
         </h1>
         <p className="lede rev">
           Senior Manager of Product Design at ServiceNow, leading the ITSM design organization —
-          20+ designers across Incident, Problem, and Change. 20+ years turning ambiguity into
+          20+ designers across Incident, Problem, and Change. Nearly 20 years turning ambiguity into
           shipped experiences and building teams that feel safe enough to do their best work.
         </p>
         <div className="hero-meta rev">
